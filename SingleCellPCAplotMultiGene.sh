@@ -44,42 +44,54 @@ x2b<- melt(x1[\"$third\",])
 row.names(x2b)<-x2b\$variable
 x2b\$variable<-NULL
 
+x2b\$value2<-x2b\$value
+x2b\$value<-NULL
+
 #cbind with pca matrix, pca$rotation
 x3<-cbind(x3b,x2b)
 
 #assign basic color
 x3\$color=\"grey\"
 
+x3\$valueplus1<-x3\$value+1
+x3\$value2plus1<-x3\$value2+1
+x3\$ratio<-x3\$valueplus1/x3\$value2plus1
+
+is.nan.data.frame <- function(x)
+do.call(cbind, lapply(x, is.nan))
+x3\$ratio[is.nan(x3\$ratio)]<-0
+
 #assign 3 color scheme
-x3\$color[x3\$value<range(x3\$value)[2]/3 & x3\$value>0] =\"#FFAAAA\"
-x3\$color[x3\$value<(range(x3\$value)[2]/3)*2 & x3\$value>range(x3\$value)[2]/3] =\"#FF5555\"
-x3\$color[x3\$value<(range(x3\$value)[2]/3)*3 & x3\$value>(range(x3\$value)[2]/3)*2] =\"#FF0000\"
+x3\$color[x3\$ratio<range(x3\$ratio)[2]/3 & x3\$ratio>0] =\"#FF0000\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/3)*2 & x3\$ratio>range(x3\$ratio)[2]/3] =\"#000000\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/3)*3 & x3\$ratio>(range(x3\$ratio)[2]/3)*2] =\"#00FF00\"
+x3\$color[x3\$valueplus1==1 & x3\$value2plus1==1]=\"grey96\"
 
 #plot pca 1/2 with 3 colors in a gradient
 
 pdf(\"pca.3col.1.2.pdf\")
-plot(pca\$rotation[,1],pca\$rotation[,2], col=x3\$color, xlab = \"PC1\", ylab = \"PC2\", pch=19, main=\"PCA plot : PC1/PC2. Coloring scale: $second expression\")
+plot(pca\$rotation[,1],pca\$rotation[,2], col=x3\$color, xlab = \"PC1\", ylab = \"PC2\", pch=19, main=\"PCA plot : PC1/PC2. Coloring scale: $second vs $third\")
 text(pca\$rotation[,1],pca\$rotation[,2], row.names(pca\$rotation), cex=0.2, pos=4)
 dev.off()
 
 #plot pca 2/3 with 3 colors in a gradient
 
 pdf(\"pca.3col.2.3.pdf\")
-plot(pca\$rotation[,2],pca\$rotation[,3], col=x3\$color, xlab = \"PC2\", ylab = \"PC3\", pch=19, main=\"PCA plot : PC2/PC3. Coloring scale: $second expression\")
+plot(pca\$rotation[,2],pca\$rotation[,3], col=x3\$color, xlab = \"PC2\", ylab = \"PC3\", pch=19, main=\"PCA plot : PC2/PC3. Coloring scale: $second vs $third\")
 text(pca\$rotation[,2],pca\$rotation[,3], row.names(pca\$rotation), cex=0.2, pos=4)
 dev.off()
 
-x3\$color=\"grey96\"
-x3\$color[x3\$value<range(x3\$value)[2]/10 & x3\$value>0] =\"#FFE5E5\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*2 & x3\$value>range(x3\$value)[2]/10] =\"#FFCCCC\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*3 & x3\$value>(range(x3\$value)[2]/10)*2] =\"#FFB2B2\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*4 & x3\$value>(range(x3\$value)[2]/10)*3] =\"#FF9999\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*5 & x3\$value>(range(x3\$value)[2]/10)*4] =\"#FF7F7F\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*6 & x3\$value>(range(x3\$value)[2]/10)*5] =\"#FF6666\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*7 & x3\$value>(range(x3\$value)[2]/10)*6] =\"#FF4C4C\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*8 & x3\$value>(range(x3\$value)[2]/10)*7] =\"#FF3333\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*9 & x3\$value>(range(x3\$value)[2]/10)*8] =\"#FF1919\"
-x3\$color[x3\$value<(range(x3\$value)[2]/10)*10 & x3\$value>(range(x3\$value)[2]/10)*9] =\"#FF0000\"
+x3\$color[x3\$ratio<range(x3\$ratio)[2]/10 & x3\$ratio>0] =\"#FF0000\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*2 & x3\$ratio>range(x3\$ratio)[2]/10] =\"#CC0000\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*3 & x3\$ratio>(range(x3\$ratio)[2]/10)*2] =\"#990000\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*4 & x3\$ratio>(range(x3\$ratio)[2]/10)*3] =\"#650000\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*5 & x3\$ratio>(range(x3\$ratio)[2]/10)*4] =\"#320000\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*6 & x3\$ratio>(range(x3\$ratio)[2]/10)*5] =\"#003300\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*7 & x3\$ratio>(range(x3\$ratio)[2]/10)*6] =\"#006600\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*8 & x3\$ratio>(range(x3\$ratio)[2]/10)*7] =\"#009900\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*9 & x3\$ratio>(range(x3\$ratio)[2]/10)*8] =\"#00CC00\"
+x3\$color[x3\$ratio<(range(x3\$ratio)[2]/10)*10 & x3\$ratio>(range(x3\$ratio)[2]/10)*9] =\"#00FF00\"
+x3\$color[x3\$valueplus1==1 & x3\$value2plus1==1]=\"grey96\"
 
 
 #plot pca 1/2 with 10 colors in a gradient
