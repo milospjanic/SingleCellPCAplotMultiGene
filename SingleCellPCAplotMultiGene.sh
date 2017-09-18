@@ -2,6 +2,7 @@
 
 first=$1 #pass the first argument to a variable so that it can be used in grep with double quotes, in order to use spaced argument 
 second=$2
+third=$3
 
 echo "#!/usr/bin/Rscript
 library(reshape2)
@@ -36,7 +37,15 @@ row.names(x2)<-x2\$variable
 x2\$variable<-NULL
 
 #cbind with pca matrix, pca$rotation
-x3<-cbind(pca\$rotation,x2)
+x3b<-cbind(pca\$rotation,x2)
+
+#select row with the second gene of interest (second parameter), melt, assign rownames
+x2b<- melt(x1[\"$third\",])
+row.names(x2b)<-x2b\$variable
+x2b\$variable<-NULL
+
+#cbind with pca matrix, pca$rotation
+x3<-cbind(x3b,x2b)
 
 #assign basic color
 x3\$color=\"grey\"
