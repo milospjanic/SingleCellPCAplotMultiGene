@@ -31,19 +31,19 @@ The script will output 6 graphs as pdf files. PC1/PC2 scatter plot with no color
 
 Below are several examples of the output files that show how the separation of the clusters can be achieved using the ratio of gene expression:
 
-Coloring the expression ratio of a transcription factor and a housekeeping gene showes that the majority of cells have higher expression of the housekeeping gene (only one cell is an outlier showing much lower expression of the housekeeping gene):
+Coloring the expression ratio of a transcription factor and a housekeeping gene showed that the majority of cells have higher expression of the housekeeping gene (only one cell is an outlier showing much lower expression of the housekeeping gene): 
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.p.jpg)
 
-Coloring the expression ratio of a fibroblast transcription factor and a cardiomyocyte marker shows that the majority of these cells are fibroblasts showing higher end expression of a TF than a cardiomyocyte marker:
+Coloring the expression ratio of a fibroblast transcription factor and a cardiomyocyte marker shows that the majority of these cells are fibroblasts showing higher end expression of a TF than a cardiomyocyte marker: 
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.n.jpg)
 
 Separation into two clusters can be achived using the two fibroblast markers, Col1a1 and Col1a2. 
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.m.jpg)
 
-Separation of the leftmost cluster can be noticed using col1a1, but it is more pronounced with Col1a2.
+Separation of the left and right cluster can be noticed using Col1a1, but it is more pronounced with Col1a2. 
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.l.jpg)
 
-Finally another cardiomyocyte marker may also separate two clusters indicating the basal expression of a cardiomyocyte marker by fibroblasts in the leftmost cluster:
+Finally another cardiomyocyte marker may also separate two clusters indicating the higher expression of a cardiomyocyte marker by fibroblasts in the rightmost cluster: 
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.jpg)
 
 </pre>
