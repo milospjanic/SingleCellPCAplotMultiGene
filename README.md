@@ -37,7 +37,7 @@ Coloring the expression ratio of a transcription factor and a housekeeping gene 
 Coloring the expression ratio of a fibroblast transcription factor and a cardiomyocyte marker shows that the majority of these cells are fibroblasts showing higher end expression of a TF than a cardiomyocyte marker: 
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.n.jpg)
 
-Separation into two clusters can be achived using the two fibroblast markers, Col1a1 and Col1a2. 
+Separation into two clusters can be achieved using the two fibroblast markers, Col1a1 and Col1a2. 
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.m.jpg)
 
 Separation of the left and right cluster can be noticed using Col1a1, but it is more pronounced with Col1a2. 
