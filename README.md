@@ -43,7 +43,7 @@ Separation into two clusters can be achieved using the two fibroblast markers, C
 Separation of the left and right cluster can be noticed using Col1a1, but it is more pronounced with Col1a2. 
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.l.jpg)
 
-Near perfer separation of the two fibroblast markers could be achieved using two fibroblast markers: Col1a1 and Vim.
+Near perfer separation of the two fibroblast clusters could be achieved using two fibroblast markers: Col1a1 and Vim.
 ![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.r.jpg)
 
 Finally another cardiomyocyte marker may also separate two clusters indicating the higher expression of a cardiomyocyte marker by fibroblasts in the rightmost cluster: 
