@@ -27,27 +27,24 @@ chmod 755 SingleCellPCAplotMultiGene.sh
 
 </pre>
 
-The script will output 6 graphs as pdf files. PC1/PC2 scatter plot with no color, colored for the expression ratio of the genes of interest in a 3 scale green-red gradient, colored in a 10 scale gradient, and PC2/PC3 scatter plot with no color, colored for in a 3 scale gradient, colored in a 10 scale gradient.
+The script will output 6 graphs as pdf files. PC1/PC2 scatter plot with no color, colored for the expression ratio of the genes of interest in a 3 scale green-red gradient, colored in a 10 scale gradient, and PC2/PC3 scatter plot with no color, colored for in a 3 scale gradient, and colored in a 10 scale gradient.
 
-Here are the examples of the outputs for the gene and mastertable used in a previous example:
+Below are several examples of the output files that show how the separation of the clusters can be achieved using the ratio of gene expression:
 
-PC1/PC2 no colors:
-![alt text](https://github.com/milospjanic/SingleCellPCAplot/blob/master/pca_nocol.1.2.png)
+Coloring the expression ratio of a transcription factor and a housekeeping gene showes that the majority of cells have higher expression of the housekeeping gene (only one cell is an outlier showing much lower expression of the housekeeping gene):
+![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.p.jpg)
 
-PC1/PC2 in a 3 scale red gradient colors:
-![alt text](https://github.com/milospjanic/SingleCellPCAplot/blob/master/pca.3col.1.2.png)
+Coloring the expression ratio of a fibroblast transcription factor and a cardiomyocyte marker shows that the majority of these cells are fibroblasts showing higher end expression of a TF than a cardiomyocyte marker:
+![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.n.jpg)
 
-PC1/PC2 in a 10 scale red gradient colors:
-![alt text](https://github.com/milospjanic/SingleCellPCAplot/blob/master/pca.10col.1.2.png)
+Separation into two clusters can be achived using the two fibroblast markers, Col1a1 and Col1a2. 
+![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.m.jpg)
 
-PC2/PC3 no colors:
-![alt text](https://github.com/milospjanic/SingleCellPCAplot/blob/master/pca_nocol.2.3.png)
+Separation of the leftmost cluster can be noticed using col1a1, but it is more pronounced with Col1a2.
+![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.l.jpg)
 
-PC2/PC3 in a 3 scale red gradient colors:
-![alt text](https://github.com/milospjanic/SingleCellPCAplot/blob/master/pca.3col.2.3.png)
-
-PC2/PC3 in a 10 scale red gradient colors:
-![alt text](https://github.com/milospjanic/SingleCellPCAplot/blob/master/pca.10col.2.3.png)
+Finally another cardiomyocyte marker may also separate two clusters indicating the basal expression of a cardiomyocyte marker by fibroblasts in the leftmost cluster:
+![alt text](https://github.com/milospjanic/SingleCellPCAplotMultiGene/blob/master/multigene2.jpg)
 
 </pre>
 
